@@ -890,7 +890,7 @@ ggsave("chart_L_msa_gender_gap.png", width = 12, height = 7, bg = "transparent")
 
 
 msa_ranked <- msa_industries %>%
-  filter(naics3 %in% common_industries) %>%
+  filter(naics3 %in% industry_name) %>%
   group_by(msa) %>%
   mutate(rank = rank(-exposure, ties.method = "first")) %>%
   ungroup()
@@ -964,4 +964,3 @@ ggplot(bump_data, aes(x = msa, y = rank, group = industry_name, color = industry
         panel.grid.minor = element_blank())
 
 ggsave("chart_M_msa_industry_bump.png", width = 12, height = 6, bg = "transparent")
-
