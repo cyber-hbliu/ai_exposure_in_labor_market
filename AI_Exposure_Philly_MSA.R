@@ -293,7 +293,7 @@ ggplot(plot_data_workforce, aes(x = reorder(Industry_Name, Workforce_Size), y = 
   theme_minimal(base_size = 12) +
   theme(legend.position = "top", legend.justification = "left", legend.title = element_text(face = "bold", size = 10), plot.title = element_text(face = "bold", size = 16), panel.grid.major.y = element_blank(), axis.text.y = element_text(face = "bold", color = "black"))
 
-ggsave("philly_top30_workforce_FINAL.png", width = 12, height = 14, bg = "transparent")
+ggsave("philly_top30_workforce_FINAL.png", width = 12, height = 10, bg = "transparent")
 
 gender_exposure <- philly_scored %>%
   group_by(gender) %>%
@@ -325,7 +325,7 @@ ggplot(industry_gender_gap, aes(y = reorder(industry_name, Female))) +
   theme_minimal(base_size = 12) +
   theme(plot.title = element_text(face = "bold", size = 16), panel.grid.major.y = element_blank(), axis.text.y = element_text(face = "bold", color = "black"))
 
-ggsave("philly_gender_gap_FINAL.png", width = 12, height = 18, bg = "transparent")
+ggsave("philly_gender_gap_FINAL.png", width = 12, height = 10, bg = "transparent")
 
 ai_leading <- final_export_table %>%
   filter(Workforce_Size >= 5000) %>%
@@ -556,7 +556,7 @@ ggplot(occ_top, aes(x = reorder(occ_title, observed_exposure), y = observed_expo
   theme(plot.title = element_text(face = "bold", size = 15),
         panel.grid.major.y = element_blank())
 
-ggsave("chart_G_top25_occupations_exposure.png", width = 12, height = 10, bg = "transparent")
+ggsave("chart_G_top25_occupations_exposure.png", width = 12, height = 9, bg = "transparent")
 
 occ_admin <- occupation_landscape %>%
   dplyr::filter(occupation_group == "Office and Administrative Support",
@@ -837,6 +837,7 @@ print(msa_compare)
 msa_compare <- msa_compare %>%
   mutate(high_workers = workers * pct_high / 100)
 msa_order <- msa_compare %>% arrange(pct_high) %>% pull(msa)
+
 ggplot(msa_compare, aes(y = factor(msa, levels = msa_order))) +
   geom_col(aes(x = workers, fill = "All workers"), width = 0.65, alpha = 0.95) +
   geom_col(aes(x = high_workers, fill = "Workers in occupations with 25%+ task exposure"), width = 0.65, alpha = 0.95) +
@@ -861,7 +862,7 @@ ggplot(msa_compare, aes(y = factor(msa, levels = msa_order))) +
         panel.grid.major.y = element_blank(),
         axis.text.y = element_text(face = "bold", color = "black"))
 
-ggsave("chart_K_msa_workers_exposed.png", width = 12, height = 7, bg = "transparent")
+ggsave("chart_K_msa_workers_exposed.png", width = 12, height = 5, bg = "transparent")
 
 msa_order_gap <- msa_compare %>% arrange(exposure) %>% pull(msa)
 
@@ -885,7 +886,7 @@ ggplot(msa_compare, aes(y = factor(msa, levels = msa_order_gap))) +
         panel.grid.major.y = element_blank(),
         axis.text.y = element_text(face = "bold", color = "black"))
 
-ggsave("chart_L_msa_gender_gap.png", width = 12, height = 7, bg = "transparent")
+ggsave("chart_L_msa_gender_gap.png", width = 12, height = 5, bg = "transparent")
 
 
 
@@ -964,3 +965,12 @@ ggplot(bump_data, aes(x = msa, y = rank, group = industry_name, color = industry
         panel.grid.minor = element_blank())
 
 ggsave("chart_M_msa_industry_bump.png", width = 12, height = 6, bg = "transparent")
+
+
+dir.create("data", showWarnings = FALSE)
+
+sf::st_write(
+  map_data_exposure %>%
+    sf::st_transform(4326) %>%
+    dplyr::transmute(name = NAMELSAD20, exposure = avg_exposure, workers = total_workers),
+  "data/puma_exposure.geojson", delete_dsn = TRUE)
