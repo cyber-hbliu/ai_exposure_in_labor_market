@@ -4,9 +4,9 @@ This project measures observed AI exposure, the proportion of an occupation's AI
 - Which industries and occupations are already affected?
 - Who holds these jobs?
 - Is any of this showing up in employment numbers yet?
-** CHECK OUT THE [WEBSITE](https://cyber-hbliu.github.io/ai_exposure_in_labor_market/)**
 
 ## Takeaways
+**CHECK OUT THE [WEBSITE](https://cyber-hbliu.github.io/ai_exposure_in_labor_market/)**
 
 
 ## Data
