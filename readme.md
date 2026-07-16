@@ -1,17 +1,12 @@
-# AI Exposure in the Philadelphia Metro Labor Market
+# AI Exposure in the Philadelphia Metro Labor Market: Industry and occupational patterns 
 
-Industry and occupational patterns 
-# **[Interactive site](https://cyber-hbliu.github.io/ai_exposure_in_labor_market/)**
-
+## **[Interactive site](https://cyber-hbliu.github.io/ai_exposure_in_labor_market/)**
 This project measures observed AI exposure, the proportion of an occupation's AI-integrated tasks already being done with AI, for each of the Philadelphia MSA's 3.26 million workers, and focuses on three questions:
 - Which industries and occupations are already affected?
 - Who holds these jobs?
 - Is any of this showing up in employment numbers yet?
 
-Findings in brief: finance leads, and retail stands out (21–24% exposure against a 12% metro
-median); more than one in five workers, about 713,000 people, hold jobs where over a quarter
-of possible tasks already use AI; mapped by residence, exposure follows the region's existing
-geography of jobs and income; and through 2025 Q4, none of this is yet visible in employment.
+## Takeaways
 
 
 ## Data
