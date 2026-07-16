@@ -6,6 +6,7 @@ This project measures observed AI exposure, the proportion of an occupation's AI
 - Is any of this showing up in employment numbers yet?
 
 ## Takeaways
+
 **CHECK OUT THE [WEBSITE](https://cyber-hbliu.github.io/ai_exposure_in_labor_market/)**
 
 
